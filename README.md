@@ -1,89 +1,86 @@
-# Python Sales Data Automation
+# 📊 Sales Data Automation Dashboard
 
-A beginner-friendly Streamlit application that cleans sales data, calculates business metrics, visualises trends, and exports a multi-sheet Excel report.
+A Python-based sales data cleaning, analysis, and reporting dashboard built using Streamlit.
+
+🚀 **Live Demo:** https://sales-data-automation.streamlit.app/
+
+## Dashboard Preview
+
+![Sales Data Automation Dashboard](dashboard.png)
 
 ## Features
 
-- Upload CSV or Excel (`.xlsx`, `.xls`) files
-- Validate required columns and clean common formatting issues
-- Remove duplicate rows
-- Reject rows with invalid dates, product names, quantities, or unit prices
-- Calculate revenue, units sold, record/order count, and average revenue per order
-- Visualise monthly revenue and top products
-- Summarise revenue by category and region when those columns are present
-- Download cleaned CSV and a multi-sheet Excel report
+- Upload sales data in CSV or Excel format.
+- Automatically clean and validate sales records.
+- Analyze total revenue, orders, and units sold.
+- Explore monthly revenue trends.
+- Identify top-performing products.
+- Analyze regional sales performance.
+- Download cleaned data as CSV.
+- Export professional Excel reports with multiple sheets.
 
-## Required input columns
+## Technologies Used
 
-- `OrderDate`
-- `Product`
-- `Quantity`
-- `UnitPrice`
+- Python
+- Streamlit
+- Pandas
+- Plotly
+- OpenPyXL
 
-Optional columns: `OrderID`, `Category`, `Region`, `Customer`.
+## Project Structure
 
-Dates should ideally use `YYYY-MM-DD`. The app also attempts day-first date parsing. `Quantity` and `UnitPrice` should contain numeric values; currency symbols and commas are stripped.
-
-## Run locally (Windows)
-
-1. Install Python 3.10 or later from https://www.python.org/downloads/
-2. Extract this project ZIP.
-3. Open the project folder in VS Code.
-4. Open Terminal > New Terminal.
-5. Create and activate a virtual environment:
-
-```powershell
-py -m venv .venv
-.venv\Scripts\activate
+```text
+python-sales-data-automation/
+│
+├── app.py
+├── requirements.txt
+├── README.md
+├── dashboard.png
+│
+└── data/
+    └── sample_sales.csv
 ```
 
-6. Install dependencies:
+## Run Locally
 
-```powershell
-python -m pip install --upgrade pip
+Clone the repository:
+
+```bash
+git clone https://github.com/asif1702-pixel/python-sales-data-automation.git
+```
+
+Navigate to the project:
+
+```bash
+cd python-sales-data-automation
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-7. Start the app:
+Run the application:
 
-```powershell
+```bash
 streamlit run app.py
 ```
 
-The app should open in your browser. If it does not, open the local URL printed in the terminal (usually http://localhost:8501).
+## Sample Dataset Results
 
-## Test with sample data
+- Total Revenue: ₹165,200
+- Valid Records: 15
+- Units Sold: 33
+- Average Revenue per Order: ₹11,013.33
 
-Use `data/sample_sales.csv`, included in this repository. Upload it in the app and check:
-- Total revenue is greater than zero
-- Monthly revenue chart appears
-- Top products chart appears
-- Cleaned CSV downloads
-- Excel report downloads and contains Summary, Cleaned Data, Monthly Revenue, Top Products, and Rejected Rows sheets
+## Author
 
-## Deploy free with Streamlit Community Cloud
+**Asif Amaan**
 
-1. Create a GitHub account.
-2. Create a new **public** repository, for example `python-sales-data-automation`.
-3. Upload all project files, including `app.py`, `requirements.txt`, `README.md`, and the `data` folder.
-4. Visit https://share.streamlit.io/ and sign in with GitHub.
-5. Select **Create app**, choose your repository, branch `main`, and main file path `app.py`.
-6. Deploy. Streamlit will install packages from `requirements.txt`.
-7. Test the public URL using the sample CSV.
+M.Tech – VLSI & Nanoelectronics  
+IIT Guwahati
 
-Free hosting availability and limits can change. Do not upload confidential client sales data to a public demo. For client work, use anonymised/sample data for demonstrations and obtain permission before processing real data.
+---
 
-## Suggested portfolio description
-
-**Python Sales Data Automation | Python, Pandas, Streamlit, Plotly, Excel**
-
-Built an interactive application that cleans sales CSV/Excel files, validates records, calculates revenue KPIs, visualises monthly sales and top products, and exports cleaned datasets plus multi-sheet Excel reports.
-
-## Important notes / limitations
-
-- This is a portfolio demonstration, not an accounting system.
-- The app assumes one row represents one product line in an order.
-- If `OrderID` is present, distinct order IDs are counted. Otherwise, valid rows are counted as records.
-- Average revenue per order is an estimate based on distinct order IDs (or records when no ID is supplied).
-- Confirm date formats, currency, tax, refunds, discounts, and business rules with each client before using this for paid work.
-- The app does not store uploaded files on purpose; files are processed in the running app session.
+If you find this project useful, consider giving the repository a ⭐.
